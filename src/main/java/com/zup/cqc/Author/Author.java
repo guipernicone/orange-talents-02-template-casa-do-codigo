@@ -1,5 +1,6 @@
 package com.zup.cqc.Author;
 
+import com.zup.cqc.Author.Form.CreateAuthorForm;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -28,6 +29,26 @@ public class Author {
         this.email = email;
         this.description = description;
         this.registerDate = new Date();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Date getRegisterDate() {
+        return registerDate;
     }
 }
 
