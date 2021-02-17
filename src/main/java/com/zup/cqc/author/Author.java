@@ -1,13 +1,11 @@
-package com.zup.cqc.Author;
+package com.zup.cqc.author;
 
-import com.zup.cqc.Author.Form.CreateAuthorForm;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name="author")
@@ -20,6 +18,7 @@ public class Author {
     @NotBlank(message="{NotBlank}")
     private String name;
 
+    @NotBlank(message="{NotBlank}")
     @Email(message="{Email}")
     private String email;
 

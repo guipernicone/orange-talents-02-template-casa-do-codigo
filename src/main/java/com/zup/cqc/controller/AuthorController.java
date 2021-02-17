@@ -1,8 +1,8 @@
-package com.zup.cqc.Controller;
+package com.zup.cqc.controller;
 
-import com.zup.cqc.Author.Author;
-import com.zup.cqc.Author.Form.CreateAuthorForm;
-import com.zup.cqc.Repository.AuthorRepository;
+import com.zup.cqc.author.Author;
+import com.zup.cqc.author.Form.CreateAuthorForm;
+import com.zup.cqc.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.net.http.HttpResponse;
 
 @RestController
 @RequestMapping("author")

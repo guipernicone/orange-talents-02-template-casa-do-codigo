@@ -1,6 +1,6 @@
-package com.zup.cqc.Author.Form;
+package com.zup.cqc.author.Form;
 
-import com.zup.cqc.Author.Author;
+import com.zup.cqc.author.Author;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -11,6 +11,7 @@ public class CreateAuthorForm {
     @NotBlank(message="{NotBlank}")
     private String name;
 
+    @NotBlank(message="{NotBlank}")
     @Email(message="{Email}")
     private String email;
 
