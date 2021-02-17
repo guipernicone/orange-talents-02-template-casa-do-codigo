@@ -1,5 +1,6 @@
 package com.zup.cqc.Author.Form;
 
+import com.zup.cqc.Author.Author;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -7,26 +8,19 @@ import javax.validation.constraints.NotBlank;
 
 public class CreateAuthorForm {
 
-    @NotBlank(message="Author name cannot be empty")
+    @NotBlank(message="{NotBlank}")
     private String name;
 
-    @NotBlank(message="Author email cannot be empty")
-    @Email(message="Invalid email format")
+    @Email(message="{Email}")
     private String email;
 
-    @NotBlank(message="Author description cannot be empty")
-    @Length(max=400)
+    @NotBlank
+    @Length(max=400, message="{Length.description}")
     private String description;
 
-    public void setName(String name) {
+    public CreateAuthorForm(String name, String email, String description) {
         this.name = name;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -42,6 +36,13 @@ public class CreateAuthorForm {
         return description;
     }
 
+    public Author toModel() {
+        return new Author(
+                this.getName(),
+                this.getEmail(),
+                this.getDescription()
+        );
+    }
     @Override
     public String toString() {
         return "CreateAuthorForm{" +

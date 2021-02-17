@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -16,19 +17,23 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank(message="{NotBlank}")
     private String name;
 
+    @Email(message="{Email}")
     private String email;
 
+    @NotBlank
+    @Length(max=400, message="{Length.description}")
     private String description;
 
-    private Date registerDate;
+    private LocalDateTime registerDate;
 
     public Author(String name, String email, String description){
         this.name = name;
         this.email = email;
         this.description = description;
-        this.registerDate = new Date();
+        this.registerDate = LocalDateTime.now();
     }
 
     public int getId() {
@@ -47,7 +52,7 @@ public class Author {
         return description;
     }
 
-    public Date getRegisterDate() {
+    public LocalDateTime getRegisterDate() {
         return registerDate;
     }
 }

@@ -25,13 +25,9 @@ public class AuthorController {
     @PostMapping
     public ResponseEntity<Author> createAuthor(@RequestBody @Valid CreateAuthorForm authorForm, UriComponentsBuilder uriBuilder) {
 
-        Author author = new Author(
-                authorForm.getName(),
-                authorForm.getEmail(),
-                authorForm.getDescription()
-        );
-
+        Author author = authorForm.toModel();
         authorRepository.save(author);
+
         URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(author.getId()).toUri();
         return ResponseEntity.created(uri).body(author);
     }
