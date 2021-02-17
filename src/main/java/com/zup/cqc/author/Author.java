@@ -1,5 +1,6 @@
 package com.zup.cqc.author;
 
+import com.zup.cqc.validator.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -20,9 +21,10 @@ public class Author {
 
     @NotBlank(message="{NotBlank}")
     @Email(message="{Email}")
+    @UniqueValue(fieldName="email", domainClass=Author.class, message="{UniqueValue.email}")
     private String email;
 
-    @NotBlank
+    @NotBlank(message="{NotBlank}")
     @Length(max=400, message="{Length.description}")
     private String description;
 
