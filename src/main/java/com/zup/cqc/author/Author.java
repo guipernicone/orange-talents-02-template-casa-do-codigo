@@ -1,11 +1,9 @@
 package com.zup.cqc.author;
 
-import com.zup.cqc.validator.UniqueValue;
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,7 +12,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @NotBlank(message="{NotBlank}")
     private String name;
@@ -24,7 +22,7 @@ public class Author {
     private String email;
 
     @NotBlank(message="{NotBlank}")
-    @Length(max=400, message="{Length.description}")
+    @Size(max=400, message="{Size.description}")
     private String description;
 
     private LocalDateTime registerDate;
@@ -36,7 +34,7 @@ public class Author {
         this.registerDate = LocalDateTime.now();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

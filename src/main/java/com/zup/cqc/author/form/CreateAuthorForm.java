@@ -2,10 +2,10 @@ package com.zup.cqc.author.form;
 
 import com.zup.cqc.author.Author;
 import com.zup.cqc.validator.UniqueValue;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class CreateAuthorForm {
 
@@ -18,7 +18,7 @@ public class CreateAuthorForm {
     private String email;
 
     @NotBlank(message="{NotBlank}")
-    @Length(max=400, message="{Length.description}")
+    @Size(max=400, message="{Size.description}")
     private String description;
 
     public CreateAuthorForm(String name, String email, String description) {

@@ -1,6 +1,5 @@
 package com.zup.cqc.category;
 
-import com.zup.cqc.validator.UniqueValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -11,7 +10,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @NotBlank(message = "{NotBlank}")
     private String name;
@@ -20,7 +19,7 @@ public class Category {
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
