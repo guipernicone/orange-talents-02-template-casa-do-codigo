@@ -21,7 +21,6 @@ public class Author {
 
     @NotBlank(message="{NotBlank}")
     @Email(message="{Email}")
-    @UniqueValue(fieldName="email", domainClass=Author.class, message="{UniqueValue.email}")
     private String email;
 
     @NotBlank(message="{NotBlank}")

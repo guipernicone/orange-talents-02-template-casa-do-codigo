@@ -3,6 +3,7 @@ package com.zup.cqc.validator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -12,8 +13,8 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Ob
 
     private String domainAttribute;
     private Class<?> klass;
-    @Autowired
-    EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public void initialize(UniqueValue params) {

@@ -1,4 +1,4 @@
-package com.zup.cqc.author.Form;
+package com.zup.cqc.author.form;
 
 import com.zup.cqc.author.Author;
 import com.zup.cqc.validator.UniqueValue;
@@ -14,7 +14,7 @@ public class CreateAuthorForm {
 
     @NotBlank(message="{NotBlank}")
     @Email(message="{Email}")
-    @UniqueValue(fieldName="email", domainClass=Author.class, message="{UniqueValue.email}")
+    @UniqueValue(fieldName="email", domainClass=Author.class, message="{UniqueValue}")
     private String email;
 
     @NotBlank(message="{NotBlank}")
